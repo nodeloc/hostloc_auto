@@ -93,8 +93,8 @@ class Discuz:
         print("chatgpt response -->" + str(response_json))
         if "choices" in response_json:
             choices = response_json["choices"]
-            if len(choices) > 0 and "text" in choices[0]:
-                return choices[0]["text"]
+            if len(choices) > 0 and "message" in choices[0] and "content" in choices[0]["message"]:
+                return choices[0]["message"]["content"]
 
         return None
 
