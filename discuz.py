@@ -1,14 +1,10 @@
-from pyexpat.errors import messages
-
+import random
 import login
-
-from time import time
+import time
 import logging
 import re
-from urllib.parse import quote
 from random import randint
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse, urlsplit, parse_qsl
 import requests
 import sys
 
@@ -98,6 +94,28 @@ class Discuz:
 
         return None
 
+    def generate_random_numbers(self, start, end, count):
+        random_numbers = []
+        for _ in range(count):
+            random_number = random.randint(start, end)
+            random_numbers.append(random_number)
+        return random_numbers
+
+    def signin(self):
+        signin_url =  f'https://{self.hostname}'
+        self.session.get(signin_url)
+
+    def visit_home(self):
+        start = 1  # 起始数字
+        end = 50000  # 结束数字
+        count = 10  # 随机数字的数量
+
+        random_numbers = self.generate_random_numbers(start, end, count)
+        for number in random_numbers:
+            time.sleep(5)
+            signin_url = f'https://{self.hostname}/space-uid-{number}.html'
+            self.session.get(signin_url)
+
     def reply(self, tid, message=''):
         topic_url = f'https://{self.hostname}/thread-{tid}-1-1.html'
         res = self.session.get(topic_url).text
@@ -136,4 +154,11 @@ if __name__ == '__main__':
     chatgpt_key = ''
     discuz = Discuz(hostname, username, password, chatgpt_key)
     discuz.login()
-    discuz.reply(discuz.get_reply_tid())
+    discuz.signin()
+    discuz.visit_home()
+    # 循环执行50次
+    for i in range(50):
+        # 执行方法
+        discuz.reply(discuz.get_reply_tid())
+        # 等待5分钟
+        time.sleep(300)  # 5分钟 = 5 * 60秒 = 300秒
