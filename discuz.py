@@ -123,8 +123,8 @@ class Discuz:
 
 if __name__ == '__main__':
     hostname = 'hostloc.com'
-    username = 'NodeLoc'
-    password = 'Acbd1324!@#'
+    username = ''
+    password = ''
     chatgpt_key = ''
     discuz = Discuz(hostname,username,password)
     discuz.login()
