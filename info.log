@@ -1,0 +1,210 @@
+2023-11-01 02:34:42,674 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 02:34:43,940 login.py form_hash：line 33 INFO loginhash : LnSrc , formhash : 7e1a11b1 
+2023-11-01 02:34:44,266 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 02:34:44,981 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000022A27B8BD60>
+2023-11-01 02:35:35,415 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 02:35:36,778 login.py form_hash：line 33 INFO loginhash : LBH46 , formhash : 7a67fe25 
+2023-11-01 02:35:37,220 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 02:35:38,068 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000002532763DEF0>
+2023-11-01 02:36:15,582 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 02:36:17,025 login.py form_hash：line 33 INFO loginhash : LQ88h , formhash : e059656b 
+2023-11-01 02:36:17,376 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 02:36:18,223 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x0000027B3D1A39A0>
+2023-11-01 02:36:31,894 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 02:36:37,928 login.py form_hash：line 33 INFO loginhash : LKMlm , formhash : afb8bce2 
+2023-11-01 02:37:04,847 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 02:37:05,649 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000002277FA3A400>
+2023-11-01 03:03:52,916 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 03:03:59,737 login.py form_hash：line 33 INFO loginhash : LB0sH , formhash : 79fe93cd 
+2023-11-01 03:04:14,882 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 03:04:17,837 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000002AB49564220>
+2023-11-01 08:17:33,538 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:17:37,795 login.py form_hash：line 33 INFO loginhash : LCWMh , formhash : a18ba740 
+2023-11-01 08:18:25,360 login.py account_login_without_verify：line 88 INFO 登陆失败，请检查账号或密码是否正确
+2023-11-01 08:18:26,157 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\ddddocr\__init__.py", line 1605, in classification
+    image = Image.open(io.BytesIO(img))
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\PIL\Image.py", line 3305, in open
+    raise UnidentifiedImageError(msg)
+PIL.UnidentifiedImageError: cannot identify image file <_io.BytesIO object at 0x000001A469F065E0>
+2023-11-01 08:21:11,972 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:21:11,976 login.py account_login：line 98 ERROR 存在验证码，登陆失败，准备获取验证码中
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 95, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\discuz\login.py", line 75, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\discuz\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 445, in prepare_url
+    raise InvalidURL(f"Invalid URL {url!r}: No host supplied")
+requests.exceptions.InvalidURL: Invalid URL 'https:///member.php?mod=logging&action=login': No host supplied
+2023-11-01 08:21:11,980 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 37, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 445, in prepare_url
+    raise InvalidURL(f"Invalid URL {url!r}: No host supplied")
+requests.exceptions.InvalidURL: Invalid URL 'https:///misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging': No host supplied
+2023-11-01 08:21:34,614 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:21:34,619 login.py account_login：line 98 ERROR 存在验证码，登陆失败，准备获取验证码中
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 95, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\discuz\login.py", line 75, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\discuz\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 445, in prepare_url
+    raise InvalidURL(f"Invalid URL {url!r}: No host supplied")
+requests.exceptions.InvalidURL: Invalid URL 'https:///member.php?mod=logging&action=login': No host supplied
+2023-11-01 08:21:34,621 login.py main：line 177 ERROR 失败，发生了一个错误！
+Traceback (most recent call last):
+  File "D:\PycharmProjects\discuz\login.py", line 163, in main
+    self.account_login()
+  File "D:\PycharmProjects\discuz\login.py", line 100, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\discuz\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\discuz\login.py", line 37, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 575, in request
+    prep = self.prepare_request(req)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\sessions.py", line 486, in prepare_request
+    p.prepare(
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 368, in prepare
+    self.prepare_url(url, params)
+  File "D:\PycharmProjects\discuz\venv\lib\site-packages\requests\models.py", line 445, in prepare_url
+    raise InvalidURL(f"Invalid URL {url!r}: No host supplied")
+requests.exceptions.InvalidURL: Invalid URL 'https:///misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging': No host supplied
+2023-11-01 08:22:04,931 login.py cookies_login：line 142 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:22:11,540 login.py form_hash：line 33 INFO loginhash : LUajF , formhash : 8ae64088 
+2023-11-01 08:29:40,867 login.py cookies_login：line 143 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:29:49,077 login.py form_hash：line 33 INFO loginhash : LhkKt , formhash : 7fd67229 
+2023-11-01 08:33:14,557 login.py cookies_login：line 143 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 08:33:15,227 login.py form_hash：line 33 INFO loginhash : LzZxo , formhash : a5d75c22 
+2023-11-01 08:33:15,458 login.py account_login_without_verify：line 86 INFO 登陆成功
+2023-11-01 08:33:15,672 login.py main：line 168 INFO 积分: 33,提交文章formhash:1f5f7b41
+2023-11-01 08:33:15,854 login.py get_conis：line 154 INFO 当前金币数量：30
+2023-11-01 08:33:15,854 login.py main：line 175 INFO 新的Cookie已保存。
+2023-11-01 08:35:56,856 login.py cookies_login：line 138 INFO 从文件中恢复Cookie成功，跳过登录。
+2023-11-01 08:35:56,857 login.py main：line 162 INFO 成功使用cookies登录
+2023-11-01 08:35:57,096 login.py main：line 168 INFO 积分: 33,提交文章formhash:1f5f7b41
+2023-11-01 08:35:57,294 login.py get_conis：line 154 INFO 当前金币数量：30
+2023-11-01 08:35:57,296 login.py main：line 175 INFO 新的Cookie已保存。
+2023-11-01 08:37:22,185 login.py cookies_login：line 138 INFO 从文件中恢复Cookie成功，跳过登录。
+2023-11-01 08:37:22,186 login.py main：line 162 INFO 成功使用cookies登录
+2023-11-01 08:37:22,410 login.py main：line 168 INFO 积分: 33,提交文章formhash:1f5f7b41
+2023-11-01 08:37:22,609 login.py get_conis：line 154 INFO 当前金币数量：30
+2023-11-01 08:37:22,611 login.py main：line 175 INFO 新的Cookie已保存。
