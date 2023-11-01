@@ -25,6 +25,3 @@ centos + python3.9
  - 自动识别验证码登录
  - 先尝试无验证码登录一次，失败后尝试自动识别验证码登录
  - 针对Hostloc编写，如果是其它Discuz论坛修改一下基本也能用。
-
-## 链接
- - [NodeLoc](https://www.nodeloc.com)
