@@ -16,7 +16,7 @@ logging.basicConfig(level=logging.INFO, filename='info.log', format="%(asctime)s
 
 
 class Discuz:
-    def __init__(self, hostname, username, password,chatgpt_key, questionid='0', answer=None, cookies_flag=True, pub_url=''):
+    def __init__(self, hostname, username, password, chatgpt_key, questionid='0', answer=None, cookies_flag=True, pub_url=''):
         self.chatgpt_key = chatgpt_key
         self.hostname = hostname
         if pub_url != '':
@@ -99,9 +99,13 @@ class Discuz:
         return None
 
     def reply(self, tid, message=''):
-
-        # 提供一个初始的对话提示
-        prompt = "你好，我是聊天机器人。"
+        topic_url = f'https://{self.hostname}/thread-{tid}-1-1.html'
+        res = self.session.get(topic_url).text
+        prompt = "你好，请直接回复两句古诗"
+        pattern = r'<meta\s+name="description"\s+content="([^"]+)"\s*/>'
+        match = re.search(pattern, res)
+        if match:
+            prompt = match.group(1)
 
         response = self.chat_with_gpt(prompt)
         if response:
@@ -130,7 +134,6 @@ if __name__ == '__main__':
     username = ''
     password = ''
     chatgpt_key = ''
-    discuz = Discuz(hostname, username, password,chatgpt_key)
+    discuz = Discuz(hostname, username, password, chatgpt_key)
     discuz.login()
     discuz.reply(discuz.get_reply_tid())
-
