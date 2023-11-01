@@ -8,27 +8,27 @@ import re
 from urllib.parse import quote
 from random import randint
 from bs4 import BeautifulSoup
-from urllib.parse import urlparse,urlsplit,parse_qsl
+from urllib.parse import urlparse, urlsplit, parse_qsl
 import requests
 import sys
-logging.basicConfig(level=logging.INFO,filename='info.log',format="%(asctime)s %(filename)s %(funcName)s：line %(lineno)d %(levelname)s %(message)s")
+
+logging.basicConfig(level=logging.INFO, filename='info.log', format="%(asctime)s %(filename)s %(funcName)s：line %(lineno)d %(levelname)s %(message)s")
 
 
 class Discuz:
-    def __init__(self, hostname, username, password, questionid='0', answer=None, cookies_flag=True,pub_url = ''):
-        self.hostname = hostname 
-        if pub_url !='':
+    def __init__(self, hostname, username, password, questionid='0', answer=None, cookies_flag=True, pub_url=''):
+        self.hostname = hostname
+        if pub_url != '':
             self.hostname = self.get_host(pub_url)
 
         self.discuz_login = login.Login(self.hostname, username, password, questionid, answer, cookies_flag)
-    
+
     def login(self):
         self.discuz_login.main()
         self.session = self.discuz_login.session
         self.formhash = self.discuz_login.post_formhash
 
-    
-    def get_host(self,pub_url):  
+    def get_host(self, pub_url):
         res = requests.get(pub_url)
         res.encoding = "utf-8"
         url = re.search(r'a href="https://(.+?)/".+?>.+?入口</a>', res.text)
@@ -48,7 +48,7 @@ class Discuz:
 
     def get_reply_tid_list(self):
         tids = []
-        soup = BeautifulSoup(self.go_hot(),features="html.parser")
+        soup = BeautifulSoup(self.go_hot(), features="html.parser")
         replys = []
         reply = soup.select_one('.bm_c')
         replys.append(reply)
@@ -64,9 +64,9 @@ class Discuz:
 
     def get_reply_tid(self):
         tids = self.get_reply_tid_list()
-        if len(tids)>0:
-            return tids[randint(0,len(tids)-1)]
-        else :
+        if len(tids) > 0:
+            return tids[randint(0, len(tids) - 1)]
+        else:
             logging.error('tid获取失败，退出')
             sys.exit()
 
@@ -91,7 +91,8 @@ class Discuz:
                 return choices[0]["text"]
 
         return None
-    def reply(self,tid,message=''):
+
+    def reply(self, tid, message=''):
 
         # 提供一个初始的对话提示
         prompt = "你好，我是聊天机器人。"
@@ -121,12 +122,13 @@ class Discuz:
             else:
                 logging.error('ChatGPT未能成功获取回复\t')
 
+
 if __name__ == '__main__':
     hostname = 'hostloc.com'
     username = ''
     password = ''
     chatgpt_key = ''
-    discuz = Discuz(hostname,username,password)
+    discuz = Discuz(hostname, username, password)
     discuz.login()
     discuz.reply(discuz.get_reply_tid())
-    
+
