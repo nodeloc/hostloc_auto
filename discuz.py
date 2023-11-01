@@ -16,7 +16,8 @@ logging.basicConfig(level=logging.INFO, filename='info.log', format="%(asctime)s
 
 
 class Discuz:
-    def __init__(self, hostname, username, password, questionid='0', answer=None, cookies_flag=True, pub_url=''):
+    def __init__(self, hostname, username, password,chatgpt_key, questionid='0', answer=None, cookies_flag=True, pub_url=''):
+        self.chatgpt_key = chatgpt_key
         self.hostname = hostname
         if pub_url != '':
             self.hostname = self.get_host(pub_url)
@@ -44,22 +45,23 @@ class Discuz:
         return self.session.get(f'https://{self.hostname}/forum.php').text
 
     def go_hot(self):
-        return self.session.get(f'https://{self.hostname}/misc.php?mod=ranklist').text
+        return self.session.get(f'https://{self.hostname}/misc.php?mod=ranklist&type=thread&view=views&orderby=today').text
 
     def get_reply_tid_list(self):
         tids = []
         soup = BeautifulSoup(self.go_hot(), features="html.parser")
         replys = []
-        reply = soup.select_one('.bm_c')
+        reply = soup.select_one('.bw0')
         replys.append(reply)
-
+        pattern = re.compile(r'thread-')
         for reply in replys:
-            for a in reply.find_all("a"):
+            for a in reply.find_all("a", href=pattern):
                 if '机器人' in str(a) or '测试' in str(a) or '封号' in str(a):
                     continue
-                dt = dict(parse_qsl(urlsplit(a['href']).query))
-                if 'tid' in dt.keys():
-                    tids.append(dt['tid'])
+                url = a['href']
+                match = re.search(r'thread-(\d+)', url)
+                if match:
+                    tids.append(match.group(1))
         return tids
 
     def get_reply_tid(self):
@@ -74,7 +76,7 @@ class Discuz:
         url = "https://api.openai.com/v1/chat/completions"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": self.chatgpt_key
+            "Authorization": self.chatgpt_key,
         }
         data = {
             "prompt": prompt,
@@ -98,9 +100,6 @@ class Discuz:
         prompt = "你好，我是聊天机器人。"
 
         while True:
-            user_input = input("用户：")
-            prompt += "\n用户：" + user_input
-
             response = self.chat_with_gpt(prompt)
             if response:
                 reply_url = f'https://{self.hostname}/forum.php?mod=post&action=reply&tid={tid}&extra=&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1'
@@ -128,7 +127,7 @@ if __name__ == '__main__':
     username = ''
     password = ''
     chatgpt_key = ''
-    discuz = Discuz(hostname, username, password)
+    discuz = Discuz(hostname, username, password,chatgpt_key)
     discuz.login()
     discuz.reply(discuz.get_reply_tid())
 
