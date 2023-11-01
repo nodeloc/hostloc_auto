@@ -131,7 +131,7 @@ class Discuz:
             data = {
                 'file': '',
                 'message': response,
-                'posttime': int(time()),
+                'posttime': int(time.time()),
                 'formhash': self.formhash,
                 'usesig': 1,
                 'subject': '',
