@@ -76,16 +76,21 @@ class Discuz:
         url = "https://api.openai.com/v1/chat/completions"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": self.chatgpt_key,
+            "Authorization": "Bearer " + self.chatgpt_key,
         }
         data = {
-            "prompt": prompt,
+            "model": "gpt-3.5-turbo",
+            "messages": [
+                {"role": "system", "content": "你是一个聊天机器人，帮助回答一些问题."},
+                {"role": "user", "content": prompt}
+            ],
             "max_tokens": 50,
             "temperature": 0.7
         }
 
         response = requests.post(url, headers=headers, json=data)
         response_json = response.json()
+        print('ChatGPT返回内容\t'+response_json)
 
         if "choices" in response_json:
             choices = response_json["choices"]
