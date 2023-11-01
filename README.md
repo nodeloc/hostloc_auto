@@ -1,6 +1,8 @@
 # hostloc_auto
 loc机器人，全自动登录discuz论坛，签到，刷空间，回帖刷币
 
+使用ChatGPT AI回帖。不容易被封号哦
+
 
 ## 环境
 centos + python3.9
@@ -13,6 +15,7 @@ centos + python3.9
     hostname = ''   #论坛地址
     username = ''   #账号
     password = ''   #密码
+    chatgpt_key = '' #ChatGPT的key
 ```
 
  - 安装依赖，可以先直接运行 `python3 discuz.py`，缺哪个库装那个，直到日志（info.log）中显示登录成功的信息
