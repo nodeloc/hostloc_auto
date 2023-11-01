@@ -41,13 +41,13 @@ class Discuz:
         return self.session.get(f'https://{self.hostname}/forum.php').text
 
     def go_hot(self):
-        return self.session.get(f'https://{self.hostname}/misc.php?mod=ranklist&type=thread&view=views&orderby=today').text
+        return self.session.get(f'https://{self.hostname}/forum-45-1.html').text
 
     def get_reply_tid_list(self):
         tids = []
         soup = BeautifulSoup(self.go_hot(), features="html.parser")
         replys = []
-        reply = soup.select_one('.bw0')
+        reply = soup.select_one('#threadlisttableid')
         replys.append(reply)
         pattern = re.compile(r'thread-')
         for reply in replys:
