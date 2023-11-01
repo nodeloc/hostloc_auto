@@ -1,0 +1,88 @@
+2023-11-01 09:09:18,539 login.py cookies_login：line 143 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 09:09:18,554 login.py account_login：line 99 ERROR 存在验证码，登陆失败，准备获取验证码中
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 96, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 75, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2023-11-01 09:09:18,577 login.py main：line 178 ERROR 失败，发生了一个错误！
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 164, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 101, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 37, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2023-11-01 09:09:32,252 login.py cookies_login：line 143 INFO 初次登录未发现Cookie，使用账号密码登录。
+2023-11-01 09:09:32,915 login.py form_hash：line 33 INFO loginhash : LERXR , formhash : e80718c5 
+2023-11-01 09:09:33,148 login.py account_login_without_verify：line 86 INFO 登陆成功
+2023-11-01 09:09:33,376 login.py main：line 168 INFO 积分: 59,提交文章formhash:dde4f57c
+2023-11-01 09:09:33,567 login.py get_conis：line 154 INFO 当前金币数量：56
+2023-11-01 09:09:33,569 login.py main：line 175 INFO 新的Cookie已保存。
+2023-11-01 09:09:34,878 discuz.py reply：line 100 INFO 回复发送成功，tid:1221149，回复:找了很久，终于找到了~,链接:https://hostloc.com/forum.php?mod=viewthread&tid=1221149&pid=14672301&page=1&extra=#pid14672301
+2023-11-01 09:09:55,844 login.py cookies_login：line 138 INFO 从文件中恢复Cookie成功，跳过登录。
+2023-11-01 09:09:59,355 login.py main：line 162 INFO 成功使用cookies登录
+2023-11-01 09:10:12,827 login.py main：line 168 INFO 积分: 60,提交文章formhash:dde4f57c
+2023-11-01 09:10:19,446 login.py get_conis：line 154 INFO 当前金币数量：57
+2023-11-01 09:10:27,187 login.py main：line 175 INFO 新的Cookie已保存。
+2023-11-01 09:10:58,053 discuz.py reply：line 100 INFO 回复发送成功，tid:1223177，回复:果断MARK，前十有我必火！,链接:https://hostloc.com/forum.php?mod=viewthread&tid=1223177&pid=14672316&page=1&extra=#pid14672316
