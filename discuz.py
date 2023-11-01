@@ -90,8 +90,7 @@ class Discuz:
 
         response = requests.post(url, headers=headers, json=data)
         response_json = response.json()
-        print('ChatGPT返回内容\t'+response_json)
-
+        print("chatgpt response -->" + str(response_json))
         if "choices" in response_json:
             choices = response_json["choices"]
             if len(choices) > 0 and "text" in choices[0]:
@@ -104,27 +103,26 @@ class Discuz:
         # 提供一个初始的对话提示
         prompt = "你好，我是聊天机器人。"
 
-        while True:
-            response = self.chat_with_gpt(prompt)
-            if response:
-                reply_url = f'https://{self.hostname}/forum.php?mod=post&action=reply&tid={tid}&extra=&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1'
-                data = {
-                    'file': '',
-                    'message': response,
-                    'posttime': int(time()),
-                    'formhash': self.formhash,
-                    'usesig': 1,
-                    'subject': '',
-                }
+        response = self.chat_with_gpt(prompt)
+        if response:
+            reply_url = f'https://{self.hostname}/forum.php?mod=post&action=reply&tid={tid}&extra=&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1'
+            data = {
+                'file': '',
+                'message': response,
+                'posttime': int(time()),
+                'formhash': self.formhash,
+                'usesig': 1,
+                'subject': '',
+            }
 
-                res = self.session.post(reply_url, data=data).text
-                if 'succeed' in res:
-                    url = re.search(r'succeedhandle_fastpost\(\'(.+?)\',', res).group(1)
-                    logging.info(f'回复发送成功，tid:{tid}，回复:{response},链接:{"https://" + self.hostname + "/" + url}')
-                else:
-                    logging.error('回复发送失败\t' + res)
+            res = self.session.post(reply_url, data=data).text
+            if 'succeed' in res:
+                url = re.search(r'succeedhandle_fastpost\(\'(.+?)\',', res).group(1)
+                logging.info(f'回复发送成功，tid:{tid}，回复:{response},链接:{"https://" + self.hostname + "/" + url}')
             else:
-                logging.error('ChatGPT未能成功获取回复\t')
+                logging.error('回复发送失败\t' + res)
+        else:
+            logging.error('ChatGPT未能成功获取回复\t')
 
 
 if __name__ == '__main__':
