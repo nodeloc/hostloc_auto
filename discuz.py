@@ -105,8 +105,8 @@ class Discuz:
 
 if __name__ == '__main__':
     hostname = 'hostloc.com'
-    username = '1stCache'
-    password = 'Acbd1324aa123123'
+    username = ''
+    password = ''
     discuz = Discuz(hostname,username,password)
     discuz.login()
     discuz.reply(discuz.get_reply_tid())
