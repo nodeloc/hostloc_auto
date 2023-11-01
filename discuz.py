@@ -77,10 +77,10 @@ class Discuz:
         data = {
             "model": "gpt-3.5-turbo",
             "messages": [
-                {"role": "system", "content": "你是一个聊天机器人，帮助回答一些问题."},
+                {"role": "system", "content": "你是一个常年混迹hostloc的人，帮助回答一些问题."},
                 {"role": "user", "content": prompt}
             ],
-            "max_tokens": 50,
+            "max_tokens": 500,
             "temperature": 0.7
         }
 

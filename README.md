@@ -2,7 +2,11 @@
 loc机器人，全自动登录discuz论坛，签到，刷空间，回帖刷币
 
 使用ChatGPT AI回帖。不容易被封号哦
-
+##
+```json
+{"role": "system", "content": "你是一个常年混迹hostloc的人，帮助回答一些问题."},
+```
+prompt请修改一下，以避免你和别人的答案类似，不同的prompt会产生截然不同的回答。
 
 ## 环境
 centos + python3.9
