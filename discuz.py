@@ -7,6 +7,7 @@ from random import randint
 from bs4 import BeautifulSoup
 import requests
 import sys
+import config
 
 logging.basicConfig(level=logging.INFO, filename='info.log', format="%(asctime)s %(filename)s %(funcName)s：line %(lineno)d %(levelname)s %(message)s")
 
@@ -102,7 +103,7 @@ class Discuz:
         return random_numbers
 
     def signin(self):
-        signin_url =  f'https://{self.hostname}'
+        signin_url = f'https://{self.hostname}'
         self.session.get(signin_url)
 
     def visit_home(self):
@@ -148,33 +149,21 @@ class Discuz:
 
 
 if __name__ == '__main__':
-    # 定义多个用户名、密码和ChatGPT密钥的组合
-    user_credentials = [
-        {'username': 'username1', 'password': 'password1'},
-        {'username': 'username2', 'password': 'password2'},
-        # 添加更多的用户名和密码组合
-    ]
-
-    chatgpt_keys = [
-        'chatgpt_key1',
-        'chatgpt_key2',
-        # 添加更多的ChatGPT密钥
-    ]
-
     # 循环执行每对用户名、密码和ChatGPT密钥的组合
-    for credentials in user_credentials:
+    for credentials in config.user_credentials:
         hostname = 'hostloc.com'
         username = credentials['username']
         password = credentials['password']
         # 随机选择一个ChatGPT密钥
-        chatgpt_key = random.choice(chatgpt_keys)
+        chatgpt_key = random.choice(config.chatgpt_keys)
         discuz = Discuz(hostname, username, password, chatgpt_key)
         discuz.login()
         discuz.signin()
         discuz.visit_home()
-        # 循环执行50次
-        for i in range(50):
-            # 执行方法
-            discuz.reply(discuz.get_reply_tid())
-            # 等待5分钟
-            time.sleep(300)  # 5分钟 = 5 * 60秒 = 300秒
+        if config.auto_replay:
+            # 循环执行50次
+            for i in range(50):
+                # 执行方法
+                discuz.reply(discuz.get_reply_tid())
+                # 等待5分钟 , 5分钟 = 5 * 60秒 = 300秒
+                time.sleep(300)
