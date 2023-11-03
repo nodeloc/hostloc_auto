@@ -1,4 +1,7 @@
 import random
+
+from pyexpat.errors import messages
+
 import login
 import time
 import logging
@@ -42,18 +45,18 @@ class Discuz:
         return self.session.get(f'https://{self.hostname}/forum.php').text
 
     def go_hot(self):
-        return self.session.get(f'https://{self.hostname}/forum-45-1.html').text
+        return self.session.get(f'https://{self.hostname}/forum.php?mod=guide&view=new').text
 
     def get_reply_tid_list(self):
         tids = []
         soup = BeautifulSoup(self.go_hot(), features="html.parser")
         replys = []
-        reply = soup.select_one('#threadlisttableid')
+        reply = soup.select_one('#threadlist')
         replys.append(reply)
         pattern = re.compile(r'thread-')
         for reply in replys:
             for a in reply.find_all("a", href=pattern):
-                if '机器人' in str(a) or '测试' in str(a) or '封号' in str(a):
+                if '机器人' in str(a) or '通知' in str(a) or '封号' in str(a):
                     continue
                 url = a['href']
                 match = re.search(r'thread-(\d+)', url)
@@ -69,31 +72,7 @@ class Discuz:
             logging.error('tid获取失败，退出')
             sys.exit()
 
-    def chat_with_gpt(self, prompt):
-        url = "https://api.openai.com/v1/chat/completions"
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + self.chatgpt_key,
-        }
-        data = {
-            "model": "gpt-3.5-turbo",
-            "messages": [
-                {"role": "system", "content": "你是一个常年混迹hostloc的人，帮助回答一些问题."},
-                {"role": "user", "content": prompt}
-            ],
-            "max_tokens": 500,
-            "temperature": 0.7
-        }
 
-        response = requests.post(url, headers=headers, json=data)
-        response_json = response.json()
-        print("chatgpt response -->" + str(response_json))
-        if "choices" in response_json:
-            choices = response_json["choices"]
-            if len(choices) > 0 and "message" in choices[0] and "content" in choices[0]["message"]:
-                return choices[0]["message"]["content"]
-
-        return None
 
     def generate_random_numbers(self, start, end, count):
         random_numbers = []
@@ -118,20 +97,23 @@ class Discuz:
             self.session.get(signin_url)
 
     def reply(self, tid, message=''):
-        topic_url = f'https://{self.hostname}/thread-{tid}-1-1.html'
-        res = self.session.get(topic_url).text
-        prompt = "你好，请直接回复两句古诗"
-        pattern = r'<meta\s+name="description"\s+content="([^"]+)"\s*/>'
-        match = re.search(pattern, res)
-        if match:
-            prompt = match.group(1)
+        reply_list = ['膜拜神贴，后面的请保持队形~',
+                      '啥也不说了，楼主就是给力！',
+                      '果断MARK，前十有我必火！',
+                      '看了LZ的帖子，我只想说一句很好很强大！',
+                      '不错，又占了一个沙发！',
+                      '哥顶的不是帖子，是寂寞！',
+                      '果断回帖，如果沉了就是我弄沉的很有成就感',
+                      '找了很久，终于找到了~',
+                      '这个真的很好很不错，我很喜欢~', ]
 
-        response = self.chat_with_gpt(prompt)
-        if response:
+        msg = reply_list[randint(0, len(reply_list) - 1)] if message == '' else messages
+
+        if msg:
             reply_url = f'https://{self.hostname}/forum.php?mod=post&action=reply&tid={tid}&extra=&replysubmit=yes&infloat=yes&handlekey=fastpost&inajax=1'
             data = {
                 'file': '',
-                'message': response,
+                'message': msg,
                 'posttime': int(time.time()),
                 'formhash': self.formhash,
                 'usesig': 1,
@@ -141,7 +123,7 @@ class Discuz:
             res = self.session.post(reply_url, data=data).text
             if 'succeed' in res:
                 url = re.search(r'succeedhandle_fastpost\(\'(.+?)\',', res).group(1)
-                logging.info(f'回复发送成功，tid:{tid}，回复:{response},链接:{"https://" + self.hostname + "/" + url}')
+                logging.info(f'回复发送成功，tid:{tid}，回复:{msg},链接:{"https://" + self.hostname + "/" + url}')
             else:
                 logging.error('回复发送失败\t' + res)
         else:
@@ -151,7 +133,7 @@ class Discuz:
 if __name__ == '__main__':
     # 循环执行每对用户名、密码和ChatGPT密钥的组合
     for credentials in config.user_credentials:
-        hostname = 'sehuatang.org'
+        hostname = 'www.sehuatang.org'
         username = credentials['username']
         password = credentials['password']
         # 随机选择一个ChatGPT密钥
