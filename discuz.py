@@ -151,19 +151,13 @@ class Discuz:
 if __name__ == '__main__':
     # 循环执行每对用户名、密码和ChatGPT密钥的组合
     for credentials in config.user_credentials:
-        hostname = 'hostloc.com'
+        hostname = 'sehuatang.org'
         username = credentials['username']
         password = credentials['password']
         # 随机选择一个ChatGPT密钥
         chatgpt_key = random.choice(config.chatgpt_keys)
         discuz = Discuz(hostname, username, password, chatgpt_key)
         discuz.login()
+        # 执行方法
+        discuz.reply(discuz.get_reply_tid())
         discuz.signin()
-        discuz.visit_home()
-        if config.auto_replay:
-            # 循环执行50次
-            for i in range(50):
-                # 执行方法
-                discuz.reply(discuz.get_reply_tid())
-                # 等待5分钟 , 5分钟 = 5 * 60秒 = 300秒
-                time.sleep(300)
