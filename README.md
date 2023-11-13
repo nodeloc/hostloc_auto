@@ -11,6 +11,8 @@ V2.0 增加了多用户的支持以及多ChatGPT key的轮询。
 ```
 prompt请修改一下，以避免你和别人的答案类似，不同的prompt会产生截然不同的回答。
 
+2023年11月13日 增加了T楼功能，多账号轮流T楼。mjj强大利器。
+
 ## 环境
 centos + python3.9
 
@@ -26,18 +28,28 @@ centos + python3.9
 ```
 
 ```angular2html
-    # 定义多个用户名、密码和ChatGPT密钥的组合
-    user_credentials = [
-        {'username': 'username1', 'password': 'password1'},
-        {'username': 'username2', 'password': 'password2'},
-        # 添加更多的用户名和密码组合
-    ]
+# credentials.py
 
-    chatgpt_keys = [
-        'chatgpt_key1',
-        'chatgpt_key2',
-        # 添加更多的ChatGPT密钥
-    ]
+user_credentials = [
+    {'username': 'NodeLoc', 'password': 'Acbd1324!@#'},
+    # 添加更多的用户名和密码组合
+]
+
+chatgpt_keys = [
+    'chatgpt_key1',
+    'chatgpt_key2',
+    # 添加更多的ChatGPT密钥
+]
+#T楼主题ID
+auto_replay_tid = 12345
+#T楼次数
+auto_replay_times = 100
+#间隔时间(秒)
+auto_replay_interval = 500
+#T楼口号
+auto_replay_content = '绑定'
+#是否自动回帖，默认为否
+auto_replay = False
 ```
 
  - 安装依赖，可以先直接运行 `python3 discuz.py`，缺哪个库装那个，直到日志（info.log）中显示登录成功的信息
