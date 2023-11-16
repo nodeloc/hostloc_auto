@@ -1,7 +1,7 @@
 # credentials.py
 
 user_credentials = [
-    {'username': 'NodeLoc', 'password': 'Acbd1324!@#'},
+    {'username': 'aaa', 'password': 'bbb'},
     # 添加更多的用户名和密码组合
 ]
 
