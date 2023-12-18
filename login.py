@@ -28,7 +28,11 @@ class Login:
 
     def form_hash(self):
         rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
-        loginhash = re.search(r'<div id="main_messaqge_(.+?)">', rst).group(1)
+        logininfo = re.search(r'<div id="main_messaqge_(.+?)">', rst)
+        if logininfo is not None:
+            loginhash = re.search(r'<div id="main_messaqge_(.+?)">', rst).group(1)
+        else:
+            loginhash = ""
         formhash = re.search(r'<input type="hidden" name="formhash" value="(.+?)" />', rst).group(1)
         logging.info(f'loginhash : {loginhash} , formhash : {formhash} ')
         return loginhash, formhash
