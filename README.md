@@ -61,4 +61,4 @@ auto_replay = False
  - 针对Hostloc编写，如果是其它Discuz论坛修改一下基本也能用。
 
 ### Sponsor 
-![https://dartnode.com](logo.png)
+![https://dartnode.com](black_color_full.png)
