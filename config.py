@@ -1,7 +1,7 @@
 # credentials.py
 
 user_credentials = [
-    {'username': 'aaa', 'password': 'bbb'},
+    {'username': 'username', 'password': '123456'},
     # 添加更多的用户名和密码组合
 ]
 
@@ -11,7 +11,7 @@ chatgpt_keys = [
     # 添加更多的ChatGPT密钥
 ]
 #T楼主题ID
-auto_replay_tid = 12345
+auto_replay_tid = 1264587
 #T楼次数
 auto_replay_times = 100
 #间隔时间(秒)
