@@ -4,6 +4,9 @@ user_credentials = [
     {'username': 'username', 'password': '123456'},
     # 添加更多的用户名和密码组合
 ]
+chatgpt_api_url = 'https://api.openai.com'
+chatgpt_model = 'gpt-3.5-turbo'
+chatgpt_prompt = '你是一个常年混迹hostloc的人，帮助回答一些问题.'
 
 chatgpt_keys = [
     'chatgpt_key1',

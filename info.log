@@ -1,0 +1,420 @@
+2023-12-18 13:09:59,827 login.py cookies_loginï¿½ï¿½line 143 INFO ï¿½ï¿½ï¿½Îµï¿½Â¼Î´ï¿½ï¿½ï¿½ï¿½Cookieï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
+2023-12-18 13:09:59,866 login.py account_loginï¿½ï¿½line 99 ERROR ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ë£¬ï¿½ï¿½Â½Ê§ï¿½Ü£ï¿½×¼ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 96, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 75, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2023-12-18 13:09:59,904 login.py mainï¿½ï¿½line 178 ERROR Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 164, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 101, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 37, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2023-12-18 13:10:21,726 login.py cookies_loginï¿½ï¿½line 143 INFO ï¿½ï¿½ï¿½Îµï¿½Â¼Î´ï¿½ï¿½ï¿½ï¿½Cookieï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½
+2023-12-18 13:10:22,388 login.py form_hashï¿½ï¿½line 33 INFO loginhash : LDWU7 , formhash : 552c0af6 
+2023-12-18 13:10:22,601 login.py account_login_without_verifyï¿½ï¿½line 86 INFO ï¿½ï¿½Â½ï¿½É¹ï¿½
+2023-12-18 13:10:22,807 login.py mainï¿½ï¿½line 168 INFO ï¿½ï¿½ï¿½ï¿½: 1738,ï¿½á½»ï¿½ï¿½ï¿½ï¿½formhash:d5a5f80e
+2023-12-18 13:10:22,984 login.py get_conisï¿½ï¿½line 154 INFO ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1648
+2023-12-18 13:10:22,985 login.py mainï¿½ï¿½line 175 INFO ï¿½Âµï¿½Cookieï¿½Ñ±ï¿½ï¿½æ¡£
+2023-12-18 13:18:33,168 login.py account_loginï¿½ï¿½line 99 ERROR ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ë£¬ï¿½ï¿½Â½Ê§ï¿½Ü£ï¿½×¼ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 96, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 75, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 31, in form_hash
+    loginhash = re.search(r'<div id="main_messaqge_(.+?)">', rst).group(1)
+AttributeError: 'NoneType' object has no attribute 'group'
+2023-12-18 13:18:33,590 login.py mainï¿½ï¿½line 178 ERROR Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 164, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 101, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 60, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 54, in verify_code_once
+    return self.ocr.classification(rst.content)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\ddddocr\__init__.py", line 1614, in classification
+    image = image.resize((int(image.size[0] * (64 / image.size[1])), 64), Image.ANTIALIAS).convert('L')
+AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'
+2023-12-18 13:28:08,472 login.py form_hashï¿½ï¿½line 37 INFO loginhash :  , formhash : d5a5f80e 
+2023-12-18 13:28:08,683 login.py account_login_without_verifyï¿½ï¿½line 90 INFO ï¿½ï¿½Â½ï¿½É¹ï¿½
+2023-12-18 13:28:08,919 login.py mainï¿½ï¿½line 172 INFO ï¿½ï¿½ï¿½ï¿½: 1758,ï¿½á½»ï¿½ï¿½ï¿½ï¿½formhash:d5a5f80e
+2023-12-18 13:28:09,123 login.py get_conisï¿½ï¿½line 158 INFO ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1668
+2023-12-18 13:28:09,124 login.py mainï¿½ï¿½line 179 INFO ï¿½Âµï¿½Cookieï¿½Ñ±ï¿½ï¿½æ¡£
+2023-12-18 13:30:16,138 login.py form_hashï¿½ï¿½line 37 INFO loginhash :  , formhash : d5a5f80e 
+2023-12-18 13:30:16,319 login.py account_login_without_verifyï¿½ï¿½line 90 INFO ï¿½ï¿½Â½ï¿½É¹ï¿½
+2023-12-18 13:30:16,523 login.py mainï¿½ï¿½line 172 INFO ï¿½ï¿½ï¿½ï¿½: 1758,ï¿½á½»ï¿½ï¿½ï¿½ï¿½formhash:d5a5f80e
+2023-12-18 13:30:16,701 login.py get_conisï¿½ï¿½line 158 INFO ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1668
+2023-12-18 13:30:16,702 login.py mainï¿½ï¿½line 179 INFO ï¿½Âµï¿½Cookieï¿½Ñ±ï¿½ï¿½æ¡£
+2024-01-17 23:45:07,912 login.py cookies_login£ºline 147 INFO ³õ´ÎµÇÂ¼Î´·¢ÏÖCookie£¬Ê¹ÓÃÕËºÅÃÜÂëµÇÂ¼¡£
+2024-01-17 23:45:07,950 login.py account_login£ºline 103 ERROR ´æÔÚÑéÖ¤Âë£¬µÇÂ½Ê§°Ü£¬×¼±¸»ñÈ¡ÑéÖ¤ÂëÖÐ
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 100, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 79, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:45:07,980 login.py main£ºline 182 ERROR Ê§°Ü£¬·¢ÉúÁËÒ»¸ö´íÎó£¡
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 168, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 105, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 64, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 41, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:45:25,470 login.py cookies_login£ºline 147 INFO ³õ´ÎµÇÂ¼Î´·¢ÏÖCookie£¬Ê¹ÓÃÕËºÅÃÜÂëµÇÂ¼¡£
+2024-01-17 23:45:25,505 login.py account_login£ºline 103 ERROR ´æÔÚÑéÖ¤Âë£¬µÇÂ½Ê§°Ü£¬×¼±¸»ñÈ¡ÑéÖ¤ÂëÖÐ
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 100, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 79, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:45:25,521 login.py main£ºline 182 ERROR Ê§°Ü£¬·¢ÉúÁËÒ»¸ö´íÎó£¡
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 168, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 105, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 64, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 41, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:46:35,867 login.py cookies_login£ºline 147 INFO ³õ´ÎµÇÂ¼Î´·¢ÏÖCookie£¬Ê¹ÓÃÕËºÅÃÜÂëµÇÂ¼¡£
+2024-01-17 23:46:35,909 login.py account_login£ºline 103 ERROR ´æÔÚÑéÖ¤Âë£¬µÇÂ½Ê§°Ü£¬×¼±¸»ñÈ¡ÑéÖ¤ÂëÖÐ
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 100, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 79, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:46:35,925 login.py main£ºline 182 ERROR Ê§°Ü£¬·¢ÉúÁËÒ»¸ö´íÎó£¡
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 168, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 105, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 64, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 41, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:46:51,227 login.py cookies_login£ºline 147 INFO ³õ´ÎµÇÂ¼Î´·¢ÏÖCookie£¬Ê¹ÓÃÕËºÅÃÜÂëµÇÂ¼¡£
+2024-01-17 23:46:57,764 login.py account_login£ºline 103 ERROR ´æÔÚÑéÖ¤Âë£¬µÇÂ½Ê§°Ü£¬×¼±¸»ñÈ¡ÑéÖ¤ÂëÖÐ
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 100, in account_login
+    if self.account_login_without_verify():
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 79, in account_login_without_verify
+    loginhash, formhash = self.form_hash()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 30, in form_hash
+    rst = self.session.get(f'https://{self.hostname}/member.php?mod=logging&action=login').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /member.php?mod=logging&action=login (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:47:03,909 login.py main£ºline 182 ERROR Ê§°Ü£¬·¢ÉúÁËÒ»¸ö´íÎó£¡
+urllib3.exceptions.SSLError: EOF occurred in violation of protocol (_ssl.c:1129)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)')))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 168, in main
+    self.account_login()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 105, in account_login
+    code = self.verify_code()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 64, in verify_code
+    code = self.verify_code_once()
+  File "D:\PycharmProjects\hostloc_auto\login.py", line 41, in verify_code_once
+    rst = self.session.get(f'https://{self.hostname}/misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging').text
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\PycharmProjects\hostloc_auto\venv\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='hostloc.com', port=443): Max retries exceeded with url: /misc.php?mod=seccode&action=update&idhash=cSA&0.3701502461393815&modid=member::logging (Caused by ProxyError('Unable to connect to proxy', SSLError(SSLEOFError(8, 'EOF occurred in violation of protocol (_ssl.c:1129)'))))
+2024-01-17 23:47:24,867 login.py cookies_login£ºline 147 INFO ³õ´ÎµÇÂ¼Î´·¢ÏÖCookie£¬Ê¹ÓÃÕËºÅÃÜÂëµÇÂ¼¡£
+2024-01-17 23:47:25,569 login.py form_hash£ºline 37 INFO loginhash : LSC33 , formhash : 79c3e1d1 
+2024-01-17 23:47:25,798 login.py account_login_without_verify£ºline 90 INFO µÇÂ½³É¹¦
+2024-01-17 23:47:26,025 login.py main£ºline 172 INFO »ý·Ö: 2233,Ìá½»ÎÄÕÂformhash:3647c9d0
+2024-01-17 23:47:26,251 login.py get_conis£ºline 158 INFO µ±Ç°½ð±ÒÊýÁ¿£º1268
+2024-01-17 23:47:26,251 login.py main£ºline 179 INFO ÐÂµÄCookieÒÑ±£´æ¡£
+2024-01-17 23:47:37,812 Snapped.py reply£ºline 110 INFO TÂ¥·¢ËÍ³É¹¦£¬tid:1264587,Á´½Ó:https://hostloc.com/forum.php?mod=viewthread&tid=1264587&pid=15155377&page=1&extra=#pid15155377

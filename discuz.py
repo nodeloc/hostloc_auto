@@ -70,15 +70,15 @@ class Discuz:
             sys.exit()
 
     def chat_with_gpt(self, prompt):
-        url = "https://api.openai.com/v1/chat/completions"
+        url = config.chatgpt_api_url + "/v1/chat/completions"
         headers = {
             "Content-Type": "application/json",
             "Authorization": "Bearer " + self.chatgpt_key,
         }
         data = {
-            "model": "gpt-3.5-turbo",
+            "model": config.chatgpt_model,
             "messages": [
-                {"role": "system", "content": "你是一个常年混迹hostloc的人，帮助回答一些问题."},
+                {"role": "system", "content": config.chatgpt_prompt},
                 {"role": "user", "content": prompt}
             ],
             "max_tokens": 500,
